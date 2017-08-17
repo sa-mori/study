@@ -14,22 +14,21 @@
 <body>
   <p><input type="button" id="btnAddText" value="項目を追加する" /></p>
   <p><input type="button" id="btnRemoveText"value="項目を削除する"  /></p>
-  <p><input type="button" id="btnCulTime"value="所要時間計算"  /></p>
-  <font color="#FF0000">所要時間は「<span id="allDuration"></span>」</font> 
-  <BR>
   <span id="lblTravelTime"></span>
   <label>出発地点</label>
   <p><input type="text" id="txtDepPoint" class="inputTarget" size="30" value="大崎駅" /></p>
 
-  <label>目的地</label>
-  <p><input type="text" id="txtTarPoint" class="inputTarget" size="30" value="東京駅" /></p>
+  <p><label>目的地</label>
+    <input type="text" id="txtTarPoint" class="inputTarget" size="30" value="東京駅" />
+    <label>滞在時間</label>
+    <input type="time" id="timeStayTime" class="inputStayTime" style="width:80px">
+  </p>
 
   <label>移動時間：<span id="duration"></span></label>
-  <br>
-  <label>滞在時間</label>
-  <p><input type="text" id="txtStayTime" class="inputStayTime" size="30" /></p>
-
   <div id="item"></div>
+  <font color="#FF0000">所要時間は「<span id="allDuration"></span>」</font> 
+  <p><input type="button" id="btnCulTime"value="検索"  /></p>
+  <div id="map_canvas" style="width: 100%; height: 600px;"></div>
   <script src="./js/traveltime.js"></script>
 </body>
 </html>

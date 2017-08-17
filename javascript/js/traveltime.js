@@ -4,6 +4,10 @@ function init() {
 }
 
 function calculateDuration(locations){
+
+  // 全ての移動時間取得後に所要時間を計算するため、親のpromiseを作成する。
+  var promises=[];
+
   locations.forEach(function(value,index){
     var durationTime = 0;
     var directionsService = new google.maps.DirectionsService();
@@ -31,6 +35,8 @@ function calculateDuration(locations){
         destination: destinationLatlng,    // 目的地の緯度経度
         travelMode: google.maps.DirectionsTravelMode.WALKING // ルートの種類
       };
+
+      // todo:ここをpromiseにして、全ての移動時間処理が終わったら、所要時間を計算する。
       directionsService.route(request, function(result, status) {
         var time1 = result.routes[0].legs[0].duration.text;  // 所要時間(最適)
         var time2 = result.routes[0].legs[0].duration.value; // 所要時間(秒)
@@ -45,6 +51,7 @@ function calculateDuration(locations){
           document.getElementById("duration" + (index-1)).innerText = time1
         }
       });
+      // todo: ここに合計所要時間計算処理を入れる。
     };
   });
 }
@@ -56,21 +63,21 @@ $(function(){
     // 項目の追加
     $("#btnAddText").on('click',function(){
       currentNumber++;
-      $("#item").append('<p><label id=\"lblTarPoint' + currentNumber + 
+      $("#item").append('<label id=\"lblTarPoint' + currentNumber + 
                                           '\">目的地' + currentNumber + '</label>');
       $("#item").append('<input class="inputTarget" id=\"txtTarPoint' + currentNumber + 
-                                          '\" type=\"text\" name=\"text1\" size=\"30\" /></p>');
+                                          '\" type=\"text\" name=\"text1\" size=\"30\" />');
 
-      $("#item").append('<p><label id=\"lblDuration' + currentNumber + 
-                                          '\">移動時間' + currentNumber + 
+      $("#item").append('<label id=\"lblStayTime' + currentNumber + 
+                                          '\">滞在時間</label>');
+      $("#item").append('<input class="inputStayTime" id=\"timeStayTime' + currentNumber + 
+                                          '\" type=\"time\" name=\"text1\" style=\"width:80px\" />');
+
+    $("#item").append('<p><label id=\"lblDuration' + currentNumber + 
+                                          '\">移動時間' + 
                                           '：<span id =duration' + currentNumber + '\></span></label>');
 
-    $("#item").append('<p><label id=\"lblStayTime' + currentNumber + 
-                                          '\">滞在時間' + currentNumber + '</label>');
-      $("#item").append('<input class="inputStayTime" id=\"txtStayTime' + currentNumber + 
-                                          '\" type=\"text\" name=\"text1\" size=\"30\" /></p>');
     });
-
     // 項目の削除
     $("#btnRemoveText").on('click',function(){
       if (currentNumber > 0){
@@ -78,7 +85,7 @@ $(function(){
         $('#lblDuration' + currentNumber).remove();
         $('#txtTarPoint' + currentNumber).remove();
         $('#lblStayTime' + currentNumber).remove();
-        $('#txtStayTime' + currentNumber).remove();
+        $('#timeStayTime' + currentNumber).remove();
         currentNumber--;
       }
     });
