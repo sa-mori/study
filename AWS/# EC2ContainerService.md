@@ -1,0 +1,20 @@
+# EC2ContainerService.md
+## 利点
+- 可搬性
+- 柔軟性
+- 起動速度
+- オーバヘッドの少なさ
+
+- Cluster全体をみてリソース状況から適切に配置を管理
+- Cluster管理のユースケース
+	- デプロイ＆テストをスクラッチ＆ビルド
+	- blue/greenデプロイ
+	- バースト負荷の対応
+- ECS
+	- ContainerInstance
+		- コンテナのホストとなるインスタンス
+		- VPC内の任意のインスタンスを利用可能
+	- Agent
+		- ECSのエンドポイントと通信するAgent
+		- Go言語製のDockerimage
+		- DockerHubで提供

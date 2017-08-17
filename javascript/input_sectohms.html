@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>秒数の入力から時分秒を出力するサンプル</title>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+  <script type="text/javascript">
+    function hms(sec) {
+      var hms = "";
+      var SecToHour = sec / 3600 | 0;
+      var SecToMin = sec % 3600 /60 | 0;
+      var SecToSec = sec % 60;
+      console.log(sec);
+
+      if (SecToHour!=0) {
+        hms = SecToHour + "時間" + padZero(SecToMin) + "分" + padZero(SecToSec) + "秒";
+      } else if (SecToMin!=0) {
+        hms = SecToMin + "分" + padZero(SecToSec) + "秒";
+      } else {
+        hms = SecToSec + "秒";
+      }
+      document.getElementById("hms_target").innerText = hms;
+    }
+
+    function padZero(v){
+      if (v < 10) {
+        return "0" + v;
+      } else {
+        return v;
+      }
+    }
+  </script>
+</head>
+<body>
+  <form name="sectohms_form" action="input_sec.html">
+    <label>秒数</label>
+    <input id="sec_textbox" type="text" name="sec_textbox" value="">
+    <input type="button" value="Sample1" onclick="hms(sec_textbox.value)">
+    <font color="#FF0000">時間は「<span id="hms_target"></span>」</font>
+
+  </form>
+</body>
+</html>

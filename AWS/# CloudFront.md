@@ -1,0 +1,31 @@
+# CloudFront.md
+
+- エッジでのGzip圧縮機能　※S3はサポートしていないので、ここでおさえると有効
+- キャッシュコントロール
+	- 単一ファイルサイズのキャッシング最大は20GB
+	- URLパス毎にキャッシュ期間指定が可能、コンテンツごとの無効化パス指定が可能
+	- フォワード機能で動的ページ配信
+- ダイナミックコンテンツ機能
+	- フォワードHeader機能
+	- フォワードCookie機能
+- カスタムエラーページ設定
+- セキュリティ機能
+	- セキュア配信
+		- HTTPS対応(強制リダイレクト/HTTPSのみ許可)
+		- SSL証明書
+		- オリジン暗号化通信　※標準ではHTTPS
+		- 署名付きURL/Cookie
+			- WebおよびRTMP(RealTimeMessageProtocol)双方に対応
+			- オリジンがS3の場合、OriginAccessIdentity(OAI)を利用
+		- Amazon WAF連携
+		- GEOリストリクション
+			- 地域指定によるアクセス制御
+- ストリーミング配信
+	- RTMP(RealTimeMessageProtocol)
+	- Smooth Streaming
+	- HLS(HttpLiveStreaming)
+	- RTMP,SmoothStreamingのコンテンツはS3に格納されている必要がある
+	- 動画コンテンツもそれぞれのフォーマットで準備が必要
+- CloudFrontとオリジンとの間のHTTPSに自己証明書を使うことはできない。
+- オリジンフェッチ
+	- オリジンサーバからエッジサーバへのデータ転送

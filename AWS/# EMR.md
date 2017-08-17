@@ -1,0 +1,21 @@
+# EMR.md
+- 分散処理基盤
+- MasterNode-CoreNode-TaskNode
+	- CoreNodeにHDFS
+	- TaskNodeはHDFSを持たない。CoreNodeにアクセスする。それ以外はCoreNodeと同じ役割。
+- EMRFS
+	- S3をHDFSのように扱う
+		- クラスタを消してもデータが消えない
+		- データの高い耐久性
+- EMRならではとして、必要な時だけクラスタ起動
+- 様々な分散アプリケーション
+	- 分散処理系
+		- Hadoop,Hive,Tez,Spark,Presto,Pig,Mahout,Sqoop
+	- データベース系
+		- HBase,Phoenix
+	- GUI系
+		- Hue,Zeppelin
+	- スケジューラ系
+		- Oozie
+	- その他
+		- Ganglia,HCatalog,Zookeeper

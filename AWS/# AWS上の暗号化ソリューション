@@ -1,0 +1,26 @@
+# AWS上の暗号化ソリューション
+- Perfect Forward Secrecy
+	- SSL/TLSでは送信データの暗号化に共通鍵を利用。鍵が危殆化すると解読される可能性。
+	- 暗号鍵の元になる情報を使い捨てる方式
+	- 全てのAWSサービスで対応
+- 以下のサービスで自身の独自証明書を利用可能
+	- ELB,CloudFront,API Gateway,IoT
+- ACM(AWS Certificate Manager)
+	- ELB,CloudFront
+	- OV証明書、EV証明書の発行、秘密鍵のダウンロードはできない
+- CloudFrontでサポートするSSL証明書
+	- デフォルト証明書
+		- cloudfront.netドメイン
+	- 独自SSL証明書
+		- ACMで発行されたもの。
+		- SSL証明書利用課金がかかる。
+	- SNI(Server Name Indication)独自証明書
+		- 古いブラウザはSNI拡張をサポートしていないので注意。
+		- SSL証明書利用課金がかからない。
+- アプリケーションでのTLS利用
+	- S2N(signal to noise)
+	- 開発者がアプリへ通信セキュリティを実装するためのAWSライブラリ
+
+- SSE(Server Side Encryption)
+- CSE(Client Side Encryption)
+- gitなどのSCM

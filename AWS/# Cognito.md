@@ -1,0 +1,70 @@
+# Cognito.md
+## AWSもモバイルサービス
+- ユーザ認証、アクセス認可
+	- Cognito(Identity)
+- データの同期
+	- Cognito(Sync)
+- ログストリーム
+	- Kinesis
+- ユーザの行動分析
+	- Pinpoint
+	- Mobile Analytics
+- ビジネスロジックの実行
+	- Lambda
+- RESTful APIサーバ
+	- API Gateway
+- メディアの管理
+	- S3 Transfer Manager
+- メディアの配信
+	- CloudFront
+- プッシュ通知の送信
+	- SNS Mobile Push
+	- Pinpoint
+- チャットボット
+	- Lex
+- 共有データの保存
+	- DynamoDB
+- 実機テストの並列実行
+	- DeviceFarm
+- AWSのモバイル系サービスの統合管理
+	- Mobile Hub
+
+## Congnitoの構成要素
+- Cognito Identity
+	- Your User Pools
+		- 数億ユーザまでスケールするセキュアなユーザ管理サービス
+		- サインアップ、サインイン、サインアウトの認証を担当
+			- 包括的なユーザフロー
+			- カスタム属性を含むユーザプロファイルの取得と更新
+			- パスワード紛失対応
+			- OpneID Connect(OIDC)とAuth2.0をベースとしたJSON Web Token(JWT)を利用
+			- Emailもしくは電話番号による確認
+			- SMSベースのMFA
+			- Lambdaを利用した認証フローのカスタマイズ
+		- csvファイルをインポートしてユーザをいれられる(パスワードは不可)
+		- 既存システムをフックしてCongnitoへサインアップできる
+		- API Gatewayとのインテグレーション
+			- API Gateway→CongnitoでUserPool内のユーザを基にした認証を受け取れる
+		- IAMロール権限を分ける
+			- UserGroupごと
+			- UserPoolのユーザ属性
+			- IAM Roleのポリシー変数でIdentityIDごとに制御
+				- S3やDynamoDBに対して、自分のIdetityに紐づいたパスだけ書き込みを制御したり。
+			- SAMLプロバイダでカスタムRoleを指定
+	- Federate Identities
+		- AWSリソースアクセス用のTemporaryCredentialsを担当(認可)
+		- 一人の人間が持つ複数のIdentitiyProviderのアカウント情報を"Identity"としてまとめる
+		- Facebook,Twitter,OpenID Connect準拠の認証サービスでログイン
+		- SAML ID Provider
+		- Developer Identity(独自開発の認証システム)
+- Congnito Sync
+	- "Identity"を持つ複数のデバイス間でデータの同期を担当
+	- オフラインサポート
+		- 書き込みはまずローカルのSQLiteに行われる
+	- いんてぐれーしょん
+		- Mobile Push
+			- プッシュ通知を受けて、データを再同期したり。
+		- Kinesis
+			- データ同期時にどこかに流し込んだり。
+		- Lambda
+			- データ同期時にデータを正規化したり。

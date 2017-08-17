@@ -1,0 +1,31 @@
+# WorkSpaces.md
+- Windowsの仮想デスクトップサービス
+- 既存のツールと容易に統合
+	- ActiveDirectory
+	- イントラネット
+	- MFA(Radius)
+	- SCCM
+- 多様なデバイスへの対応
+- グローバルなカバレッジ
+- セキュリティと信頼性
+	- ローカルにデータを保存しない
+	- MFA対応
+	- デスクトップのドライブを暗号化
+		- AES-256bit暗号化
+		- KMSと統合
+		- パフォーマンスへの影響はない
+	- ユーザデータはS3にバックアップ
+		- 12時間おき。
+- アプリケーション
+	- Workspaces Application Manager(WAM)
+		- 動的アプリ配信
+	- デスクトップアプリ向けMarketplace
+- バンドル管理
+	- カスタムイメージを作成してカスタムバンドルを利用可能
+- WorkSpaces API
+- 実行モード
+	- AlwaysOn
+	- AutoStop
+		- 時間課金
+- Graphics Bundle
+	- GPUを搭載したWorkSpaces

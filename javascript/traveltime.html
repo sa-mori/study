@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyA-kSaEBKKf9j0M14aD73ktll_4J1XpE-s&v=3&sensor=false"
+        type="text/javascript" charset="UTF-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <title>旅行にかかる所要時間</title>
+  <script>
+
+  res=[];
+
+  function init() {
+    geo = new google.maps.Geocoder();
+  }
+
+  function getLatlng(txtInputTarget,callback){
+    var req = {
+      address: txtInputTarget,
+    };
+    geo.geocode(req,geoResultCallback);
+    callback();
+  }
+
+  function geoResultCallback(result, status){
+    if (status != google.maps.GeocoderStatus.OK) {
+      alert(status);
+      return;
+    }
+
+    var latlng = result[0].geometry.location;
+    res.push(latlng.toString());
+    // res.push("1");
+    console.log('callback:' + latlng.toString());
+    console.log(res);
+    console.log(res.length);
+  }
+
+  function getDuration(i,callback){
+    console.log('getDuration');
+    console.log(i);
+    callback();
+  }
+
+  $(function(){
+      var currentNumber = 0;
+
+      // 項目の追加
+      $("#btnAddText").on('click',function(){
+        currentNumber++;
+        $("#item").append('<p><label id=\"lblTarPoint' + currentNumber + '\">目的地' + currentNumber + '</label>');
+        $("#item").append('<input class="inputTarget" id=\"txtTarPoint' + currentNumber + '\" type=\"text\" name=\"text1\" size=\"30\" /></p>');
+        $("#item").append('<p><label id=\"lblStayTime' + currentNumber + '\">滞在時間' + currentNumber + '</label>');
+        $("#item").append('<input class="inputStayTime" id=\"txtStayTime' + currentNumber + '\" type=\"text\" name=\"text1\" size=\"30\" /></p>');
+      });
+
+      // 項目の削除
+      $("#btnRemoveText").on('click',function(){
+        $('#lblTarPoint' + currentNumber).remove();
+        $('#txtTarPoint' + currentNumber).remove();
+        $('#lblStayTime' + currentNumber).remove();
+        $('#txtStayTime' + currentNumber).remove();
+        currentNumber--;
+      });
+
+      // 対象エリアの緯度経度取得
+      $("#btnCulTime").on('click',function(){
+        var cntTime = 0;
+        $('.inputTarget').each(function(i){
+          var txtTarget = $(this).val();
+          // 配列へ代入
+          const p = new Promise((resolve, reject) => {
+            getDuration(i,function(){
+              var req = {
+               address: txtTarget,
+              };
+              const p1 = new Promise((resolve,reject) => {
+                geo.geocode(req, geoResultCallback);
+              });
+              p1.then(() => resolve());
+             });
+          });
+        });
+        console.log(res.length);
+        console.log('end inputTraget.each');
+      });
+
+      // 所要時間計算
+      $("#btnCulTime").on('click',function(){
+          var cntTime = 0;
+          $('.inputStayTime').each(function(i){
+            cntTime = cntTime + Number($(this).val());
+          });
+          console.log('所要時間計算' + cntTime);
+      });
+  });
+  </script>
+
+</head>
+<body onload="init()">
+  <p><input type="button" id="btnAddText" value="項目を追加する" /></p>
+  <p><input type="button" id="btnRemoveText"value="項目を削除する"  /></p>
+  <p><input type="button" id="btnCulTime"value="所要時間計算"  /></p>
+  <label>所要時間</label>
+  <BR>
+  <span id="lblTravelTime"></span>
+  <label>出発地点</label>
+  <p><input type="text" id="txtDepPoint" class="inputTarget" size="30" /></p>
+
+  <label>目的地</label>
+  <p><input type="text" id="txtTarPoint" class="inputTarget" size="30" /></p>
+
+  <label>滞在時間</label>
+  <p><input type="text" id="txtStayTime" class="inputStayTime" size="30" /></p>
+
+  <div id="item"></div>
+</body>
+</html>
