@@ -3,6 +3,16 @@ function init() {
   TravelTimer.geo = new google.maps.Geocoder();
 }
 
+// 時間を秒にする
+function HmToSec(hm_time){
+  var sec = "";
+  var HourtoSec = hm_time.substr(0,2) * 3600;
+  var MintoSec = hm_time.substr(3,2) * 60;
+
+  sec = HourtoSec + MintoSec;
+  return sec;
+}
+
 // 秒を時間にする
 function SecToHms(sec) {
   var hms = "";
@@ -96,13 +106,19 @@ function calculateDuration(locations){
         allDuration = allDuration + result.routes[0].legs[0].duration.value;
         console.log(result.routes[0].legs[0].duration.value);
       });
-      var dt = new Date();
-      console.log(dt.setSeconds(dt.getSeconds() + allDuration));
-      console.log(dt.toLocaleString());
-      console.log(SecToHms(allDuration));
-      console.log('====end=====');
       // todo:集計後、span id="allDuration"へセットする。
-      
+      var allStayTime = 0;
+      $('.inputStayTime').each(function(i){
+        allStayTime = allStayTime + HmToSec($(this).val());
+        console.log('====stay====')
+        console.log(allStayTime);
+      });
+
+      var dt = new Date();
+      console.log(dt.setSeconds(dt.getSeconds() + allDuration + allStayTime));
+      console.log(dt.toLocaleString());
+      document.getElementById("allDuration").innerText = dt.toLocaleString();
+      console.log('====end=====');
       // todo:全地点を元にルート表示
 
     });
