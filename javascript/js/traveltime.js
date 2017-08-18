@@ -3,6 +3,33 @@ function init() {
   TravelTimer.geo = new google.maps.Geocoder();
 }
 
+// 秒を時間にする
+function SecToHms(sec) {
+  var hms = "";
+  var SecToHour = sec / 3600 | 0;
+  var SecToMin = sec % 3600 /60 | 0;
+  var SecToSec = sec % 60;
+
+  if (SecToHour!=0) {
+    hms = SecToHour + "時間" + padZero(SecToMin) + "分" + padZero
+(SecToSec) + "秒";
+  } else if (SecToMin!=0) {
+    hms = SecToMin + "分" + padZero(SecToSec) + "秒";
+  } else {
+    hms = SecToSec + "秒";
+  }
+  return hms;
+}
+
+// ゼロ埋め
+function padZero(v){
+  if (v < 10) {
+    return "0" + v;
+  } else {
+    return v;
+  }
+}
+
 function calculateDuration(locations){
 
   // 全ての移動時間取得後に所要時間を計算するため、親のpromiseを作成する。
@@ -37,23 +64,48 @@ function calculateDuration(locations){
       };
 
       // todo:ここをpromiseにして、全ての移動時間処理が終わったら、所要時間を計算する。
-      directionsService.route(request, function(result, status) {
-        var time1 = result.routes[0].legs[0].duration.text;  // 所要時間(最適)
-        var time2 = result.routes[0].legs[0].duration.value; // 所要時間(秒)
-        console.log('区間' + index)
-        console.log(time1);
-        console.log(time2);
-
+      const promise = new Promise((resolve, reject) => {
+        directionsService.route(request, (result, status) => {
+         var time1 = result.routes[0].legs[0].duration.text;  // 所要時間(最適)
+         var time2 = result.routes[0].legs[0].duration.value; // 所要時間(秒)
+         console.log('区間' + index)
+         console.log(time1);
+         console.log(time2);
         // 
-        if (index==1){
-          document.getElementById("duration").innerText = time1
-        }else{
-          document.getElementById("duration" + (index-1)).innerText = time1
-        }
+         if (index==1){
+           document.getElementById("duration").innerText = time1
+         }else{
+           document.getElementById("duration" + (index-1)).innerText = time1
+         }
+         resolve(result);
+        });
       });
-      // todo: ここに合計所要時間計算処理を入れる。
+      promises.push(promise);
     };
   });
+
+  Promise
+    .all(promises)
+    .then((results) => {
+      console.log('============');
+      console.log(results);
+
+      // 移動時間の集計処理
+      var allDuration = 0;
+      results.forEach((result) => {
+        allDuration = allDuration + result.routes[0].legs[0].duration.value;
+        console.log(result.routes[0].legs[0].duration.value);
+      });
+      var dt = new Date();
+      console.log(dt.setSeconds(dt.getSeconds() + allDuration));
+      console.log(dt.toLocaleString());
+      console.log(SecToHms(allDuration));
+      console.log('====end=====');
+      // todo:集計後、span id="allDuration"へセットする。
+      
+      // todo:全地点を元にルート表示
+
+    });
 }
 
 $(function(){
@@ -128,6 +180,5 @@ $(function(){
           alert(error);
         });
     });
-    // todo: jqueryで時間の項目に変更があれば、所要時間を書き換える。
     // todo: 全経路の地図表示i、promiseで区間移動時間を全て処理した後に動くこと。
 });
