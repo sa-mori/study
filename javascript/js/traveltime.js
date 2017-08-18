@@ -115,6 +115,10 @@ $(function(){
     // 項目の追加
     $("#btnAddText").on('click',function(){
       currentNumber++;
+      $("#item").append('<p><label id=\"lblDuration' + currentNumber + 
+                                          '\">移動時間' + 
+                                          '：<span id =duration' + currentNumber + '\></span></label>');
+
       $("#item").append('<label id=\"lblTarPoint' + currentNumber + 
                                           '\">目的地' + currentNumber + '</label>');
       $("#item").append('<input class="inputTarget" id=\"txtTarPoint' + currentNumber + 
@@ -125,9 +129,6 @@ $(function(){
       $("#item").append('<input class="inputStayTime" id=\"timeStayTime' + currentNumber + 
                                           '\" type=\"time\" name=\"text1\" style=\"width:80px\" />');
 
-    $("#item").append('<p><label id=\"lblDuration' + currentNumber + 
-                                          '\">移動時間' + 
-                                          '：<span id =duration' + currentNumber + '\></span></label>');
 
     });
     // 項目の削除
