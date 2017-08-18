@@ -3,6 +3,59 @@ function init() {
   TravelTimer.geo = new google.maps.Geocoder();
 }
 
+// 地図を表示する
+function mapCall(locations) {
+
+  console.log(locations[0]);
+  var map;
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRenderer = new google.maps.DirectionsRenderer();
+
+  // 地図初期化のオプション
+  var mapOptions = {
+    zoom: 17,
+    center: locations[0],
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    scaleControl: true,
+  };
+
+  // 地図を表示
+  map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+  // ルートを取得
+  var request ={};
+  var requestWaypoints = [];
+  locations.forEach((result,index) => {
+    console.log('==location==');
+    console.log(index);
+    console.log(locations.length);
+    console.log(locations[index]);
+
+    if (index === 0){
+      request['origin'] = locations[index];
+    }else if(index === locations.length-1){
+      request['destination'] = locations[index];
+    }else{
+      requestWaypoints.push({
+        location: locations[index],
+        stopover: true  // falseの時はただの通過点としてマーカがつかない。
+      });
+    };
+  });
+  request['waypoints'] = requestWaypoints;
+  // todo:TRANSITができるのかを確認
+  request['travelMode'] = google.maps.DirectionsTravelMode.WALKING; // ルートの種類
+
+  console.log(requestWaypoints);
+  console.log(request);
+  console.log('====req====');
+
+  directionsService.route(request, function(result, status) {
+    directionsRenderer.setDirections(result); // 取得したルートをセット
+    directionsRenderer.setMap(map); // ルートを地図に表示
+  });
+}
+
 // 時間を秒にする
 function HmToSec(hm_time){
   var sec = "";
@@ -61,19 +114,17 @@ function calculateDuration(locations){
       console.log(locations[index-1]);
 
       // 前後に()があるとdirectionsServiceがエラーになるため、除外する。
-      var originLatlng = locations[index].substr(1,locations[index].length - 2);
-      var destinationLatlng = locations[index-1].substr(1,locations[index-1].length - 2);
-      console.log('========');
-      console.log(originLatlng);
-      console.log(destinationLatlng);
+//      var originLatlng = locations[index].substr(1,locations[index].length - 2);
+//      var destinationLatlng = locations[index-1].substr(1,locations[index-1].length - 2);
+//      console.log(originLatlng);
+//      console.log(destinationLatlng);
 
       var request = {
-        origin: originLatlng,   // 出発地点の緯度経度
-        destination: destinationLatlng,    // 目的地の緯度経度
+        origin: locations[index-1],   // 出発地点の緯度経度
+        destination: locations[index],    // 目的地の緯度経度
         travelMode: google.maps.DirectionsTravelMode.WALKING // ルートの種類
       };
 
-      // todo:ここをpromiseにして、全ての移動時間処理が終わったら、所要時間を計算する。
       const promise = new Promise((resolve, reject) => {
         directionsService.route(request, (result, status) => {
          var time1 = result.routes[0].legs[0].duration.text;  // 所要時間(最適)
@@ -106,7 +157,6 @@ function calculateDuration(locations){
         allDuration = allDuration + result.routes[0].legs[0].duration.value;
         console.log(result.routes[0].legs[0].duration.value);
       });
-      // todo:集計後、span id="allDuration"へセットする。
       var allStayTime = 0;
       $('.inputStayTime').each(function(i){
         allStayTime = allStayTime + HmToSec($(this).val());
@@ -119,7 +169,6 @@ function calculateDuration(locations){
       console.log(dt.toLocaleString());
       document.getElementById("allDuration").innerText = dt.toLocaleString();
       console.log('====end=====');
-      // todo:全地点を元にルート表示
 
     });
 }
@@ -188,14 +237,19 @@ $(function(){
           var latlngs = [];
           results.forEach((result) => {
             // 結果の緯度経度をlatlngsへ追加
-            latlngs.push(result[0].geometry.location.toString());
+            // 後に()があるとAPIにそのまま渡せないため、除外する。
+            var latlng = result[0].geometry.location.toString();
+            latlngs.push(latlng.substr(1,latlng.length - 2));
           });
+          // 所要時間計算
           calculateDuration(latlngs);
+
+          // ルート表示
+          mapCall(latlngs);
         })
         .catch((error) => {
           console.error(error);
           alert(error);
         });
     });
-    // todo: 全経路の地図表示i、promiseで区間移動時間を全て処理した後に動くこと。
 });
