@@ -5,23 +5,28 @@ function init() {
 
 // 地図を表示する
 function mapCall(locations) {
-
+  console.log('mapCall start');
   console.log(locations[0]);
   var map;
   var directionsService = new google.maps.DirectionsService();
   var directionsRenderer = new google.maps.DirectionsRenderer();
+  var mapCenter = new google.maps.LatLng('35.6811673','139.76705160000006');
+
 
   // 地図初期化のオプション
   var mapOptions = {
     zoom: 17,
-    center: locations[0],
+    center: mapCenter,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     scaleControl: true,
   };
 
+  console.log(mapOptions);
+
   // 地図を表示
   map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
+  console.log('=== 1 ===');
   // ルートを取得
   var request ={};
   var requestWaypoints = [];
@@ -42,9 +47,8 @@ function mapCall(locations) {
       });
     };
   });
-  request['waypoints'] = requestWaypoints;
-  // todo:TRANSITができるのかを確認
   request['travelMode'] = google.maps.DirectionsTravelMode.WALKING; // ルートの種類
+  request['waypoints'] = requestWaypoints;
 
   console.log(requestWaypoints);
   console.log(request);
@@ -53,6 +57,8 @@ function mapCall(locations) {
   directionsService.route(request, function(result, status) {
     directionsRenderer.setDirections(result); // 取得したルートをセット
     directionsRenderer.setMap(map); // ルートを地図に表示
+    console.log(status);
+    console.log('=== Render ===');
   });
 }
 
@@ -112,12 +118,6 @@ function calculateDuration(locations){
       console.log(index);
       console.log(locations[index]);
       console.log(locations[index-1]);
-
-      // 前後に()があるとdirectionsServiceがエラーになるため、除外する。
-//      var originLatlng = locations[index].substr(1,locations[index].length - 2);
-//      var destinationLatlng = locations[index-1].substr(1,locations[index-1].length - 2);
-//      console.log(originLatlng);
-//      console.log(destinationLatlng);
 
       var request = {
         origin: locations[index-1],   // 出発地点の緯度経度
