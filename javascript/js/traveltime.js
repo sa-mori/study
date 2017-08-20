@@ -1,6 +1,17 @@
 function init() {
   window.TravelTimer = {};
   TravelTimer.geo = new google.maps.Geocoder();
+
+  // 出発日時にDate()を入れる。
+  var nowDate = new Date();
+  var nowYear = padZero(nowDate.getFullYear(),4);
+  var nowMonth = padZero(nowDate.getMonth()+1,2);
+  var nowDay = padZero(nowDate.getDate(),2);
+  var nowHour = padZero(nowDate.getHours(),2);
+  var nowMinute = padZero(nowDate.getMinutes(),2);
+
+  console.log(nowYear + nowMonth + nowDay + nowHour + nowMinute);
+  document.getElementById('dtimeDeparture').value = nowYear + '-' + nowMonth + '-' + nowDay + 'T' + nowHour + ':' + nowMinute;
 }
 
 // 地図を表示する
@@ -80,10 +91,10 @@ function SecToHms(sec) {
   var SecToSec = sec % 60;
 
   if (SecToHour!=0) {
-    hms = SecToHour + "時間" + padZero(SecToMin) + "分" + padZero
-(SecToSec) + "秒";
+    hms = SecToHour + "時間" + padZero(SecToMin,2) + "分" + padZero
+(SecToSec,2) + "秒";
   } else if (SecToMin!=0) {
-    hms = SecToMin + "分" + padZero(SecToSec) + "秒";
+    hms = SecToMin + "分" + padZero(SecToSec,2) + "秒";
   } else {
     hms = SecToSec + "秒";
   }
@@ -91,12 +102,12 @@ function SecToHms(sec) {
 }
 
 // ゼロ埋め
-function padZero(v){
-  if (v < 10) {
-    return "0" + v;
-  } else {
-    return v;
+function padZero(num,digits){
+  num += '';
+  while (num.length < digits){
+    num = '0' + num;
   }
+  return num;
 }
 
 function calculateDuration(locations){
