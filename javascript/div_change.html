@@ -1,0 +1,18 @@
+<script>
+  window.onload = function(){
+    var button = document.getElementById("button")
+    button.onclick = function(){
+      var elem = document.getElementById("sample")
+        var html = "today cat <br><img src=\"images/cat2.jpg\">";
+      elem.innerHTML = html;
+    }
+  }
+</script>
+
+<body>
+  <div id="sample">
+    cat in park<br>
+    <img src="images/cat1.jpg">
+  </div>
+  <input id="button" type="button" value="change html">
+</body>

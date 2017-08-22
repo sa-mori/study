@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <title>フォームを動的に追加するサンプル_jq</title>
+  <script>
+  $(function(){
+    $("#btn_add").on('click',function(){
+      console.log("click");
+      $("#item").append("<p><input type=\"text\" name=\"text1\" size=\"30\" /></p>");
+    });
+
+      });
+  </script>
+
+</head>
+<body>
+<h4>項目1</h4>
+<p><input type="text" name="text1" size="30" /></p>
+<div id="item"></div>
+<p><input id="btn_add" type="button" value="項目を追加する" /></p>
+<p><input id="btn_remove" type="button" value="項目を削除する"  /></p>
+</body>
+</html>

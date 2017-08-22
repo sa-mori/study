@@ -1,0 +1,48 @@
+<script>
+function init(){
+  // 
+  function add(x,y){
+    return x+y;
+  }
+
+  console.log(add(1,2));
+
+  // 関数を変数に入れる
+  var sayHello = function(){
+    console.log('Hello');
+  };
+
+  function hello(callback){
+    callback();
+    console.log('World');
+  }
+
+  // コールバック関数
+
+ function execCallback(callback){
+   console.log('I call callback');
+   callback();
+ }
+
+ var myCallback = function(){
+   console.log('This is my callback');
+ }
+
+ execCallback(myCallback);
+
+ // コールバック関数1--ダメなポイントがわからない。
+function execCallback1(callback){
+  return callback();
+}
+var myCallback1 = function(){
+  return 'This is mycallback1';
+}
+
+res = execCallback1(myCallback1);
+console.log(res);
+console.log(execCallback1(myCallback1));
+
+}
+</script>
+ <body onload="init()">
+</body>

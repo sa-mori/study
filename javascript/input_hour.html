@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>時分から秒数を出力するサンプル</title>
+<script>
+  function HmtoSec(hm_time){
+    var sec = "";
+    var HourtoSec = hm_time.substr(0,2) * 3600;
+    var MintoSec = hm_time.substr(3,2) * 60;
+    console.log(hm_time);
+    console.log(hm_time.substr(0,2));
+    console.log(hm_time.substr(3,2));
+    console.log(HourtoSec);
+    console.log(MintoSec);
+
+    sec = HourtoSec + MintoSec;
+    document.getElementById("sec_target").innerText = sec;
+  }
+</script>
+</head>
+<body>
+  <form name="sample_form" action="input_sec.html">
+    <label>時分</label>
+    <input type="time" name="hm_time" style="width:80px">
+    <input type="button" value="Sample1" onclick="HmtoSec(hm_time.value)">
+    <font color="#FF0000">秒数は「<span id="sec_target"></span>」</font>
+  </form>
+</body>
+</html>

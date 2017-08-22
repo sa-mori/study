@@ -1,0 +1,23 @@
+<script>
+  window.onload = function(){
+    var addbutton = document.getElementById("add button");
+    var removebutton = document.getElementById("remove button");
+
+    addbutton.onclick = function(){
+      var img = document.createElement("img");
+      img.src = "images/cat1.jpg";
+      img.id = "cat";
+      document.body.appendChild(img);
+    };
+
+    removebutton.onclick = function(){
+      var elem = document.getElementById("cat");
+      document.body.removeChild(elem);
+    };
+
+  };
+</script>
+<body>
+  <input id="add button" type="button" value="add element">
+  <input id="remove button" type="button" value="remove element">
+</body>

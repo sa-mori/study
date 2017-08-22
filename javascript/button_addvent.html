@@ -1,0 +1,21 @@
+<head>
+  <meta charset="UTF-8" />
+  <titile>Event sample</title>
+  <script>
+    window.addEventListener("DOMCotentLoaded", function(){
+      var button = document.getElementById("button")
+      button.addEventListener("click", function(){
+        window.alert("click");
+      });
+
+      button.addEventListener("click", function(){
+        window.alert("click");
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <input type="button" id="button" value="click">
+</body>
+</head>

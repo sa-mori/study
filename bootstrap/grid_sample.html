@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bootstrap sample</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Study BootStrap</h1>
+  <h2>Hello, world!</h2>
+  <img src="./images/pudding.jpg" alt="pudding" class="img-circle">
+
+  <h2>Grid System</h2>
+  <div class="col-xs-2" style="background:#CCC;height:250px;">column A</div>
+  <div class="col-xs-6" style="background:#999;height:250px;">column B</div>
+  <div class="col-xs-4" style="background:#CCC;height:250px;">column C</div>
+
+
+  <h2>Grid System 分割数に足りない場合は余白ができる</h2>
+  <div class="row">
+    <div class="col-xs-2" style="background:#CCC;height:250px;">column A</div>
+    <div class="col-xs-4" style="background:#CCC;height:250px;">column C</div>
+  </div>
+
+  <h2>コンテナの適用</h2>
+  <h3 style="background:#CCC;">コンテナなしの場合</h3>
+  
+  <div class="container-fluid">
+    <h3 style="background:#CCC;">コンテナありの場合</h3>
+  </div>
+
+  <div class="container-fluid">
+    <h2>Grid System in container-fluid</h2>
+    <div class="col-xs-2" style="background:#CCC;height:250px;">column A</div>
+    <div class="col-xs-6" style="background:#999;height:250px;">column B</div>
+    <div class="col-xs-4" style="background:#CCC;height:250px;">column C</div>
+  </div>
+
+  
+  <div class="container-fluid">
+    <h2>Grid System in container-fluid with row</h2>
+    <div class="row">
+      <div class="col-xs-2" style="background:#CCC;height:250px;">column A</div>
+      <div class="col-xs-6" style="background:#999;height:250px;">column B</div>
+      <div class="col-xs-4" style="background:#CCC;height:250px;">column C</div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h2>Grid System in container with row</h2>
+    <div class="row">
+      <div class="col-xs-2" style="background:#CCC;height:250px;">column A</div>
+      <div class="col-xs-6" style="background:#999;height:250px;">column B</div>
+      <div class="col-xs-4" style="background:#CCC;height:250px;">column C</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Nesting Grid System</h2>
+    <div class="row">
+      <div class="col-xs-9" style="border:solid 1px #000;height:650px;">
+        <div class="row">
+          <div class="col-xs-2" style="background:#CCC;height:250px;">column A</div>
+          <div class="col-xs-6" style="background:#999;height:250px;">column B</div>
+          <div class="col-xs-4" style="background:#CCC;height:250px;">column C</div>
+        </div>
+      </div>
+      <div class="col-xs-3" style="border:solid 1px #000;height:650px;">
+        <h2>Side Bar</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Grid System offset</h2>
+    <div class="row">
+      <div class="col-xs-2" style="background:#CCC;height:250px;">column A</div>
+      <div class="col-xs-offset-6 col-xs-4" style="background:#CCC;height:250px;">column C</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Grid System with img</h2>
+    <div class="row">
+      <div class="col-xs-2" style="padding:0;background:#CCC;height:550px;">
+        <img src="./images/pudding.jpg" class="img-responsive">  
+      </div>
+      <div class="col-xs-5" style="padding:0;background:#999;height:550px;">
+        <img src="./images/kasutera.jpg" class="img-responsive">  
+      </div>
+      <div class="col-xs-5" style="padding:0;background:#CCC;height:550px;">
+        <img src="./images/marron.jpg" class="img-responsive">  
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Grid System no parameter with img</h2>
+    <div class="row">
+      <div class="col-sm-2" style="padding:">
+        <img src="./images/pudding.jpg" class="img-responsive">  
+      </div>
+      <div class="col-sm-5" style="padding:0">
+        <img src="./images/kasutera.jpg" class="img-responsive">  
+      </div>
+      <div class="col-sm-5" style="padding:0">
+        <img src="./images/marron.jpg" class="img-responsive">  
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container">
+    <h2>ブロック配置の変化</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6" style="background:#CCC;height:250px;">block A</div>
+      <div class="col-xs-6 col-sm-3" style="background:#999;height:250px;">block A</div>
+      <div class="col-xs-6 col-sm-3" style="background:#CCC;height:250px;">block A</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>ブロック配置の変化2　隠す</h2>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6" style="background:#CCC;height:250px;">block A</div>
+      <div class="hidden-xs col-sm-3" style="background:#999;height:250px;">block A</div>
+      <div class="col-xs-6 col-sm-3" style="background:#CCC;height:250px;">block A</div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h2>写真と見出し</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6" style="padding:0;">
+          <img src="./images/pudding.jpg" class="img-responsive">
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12" style="height:20px;"></div>
+        <h3 style="margin-top:0">プリン</h3>
+        <p>丸くて柔らかくて甘いもの</p>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

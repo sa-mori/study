@@ -1,0 +1,34 @@
+<script>
+function init(){
+  // 
+  const promise = new Promise((resolve,reject) => resolve());
+
+  // promise終了後に処理したい関数
+  promise.then(() => console.log('done'));
+
+
+  const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log('hello');
+          resolve();
+          }, 500);
+        });
+      promise1.then(() => console.log('world!'));
+
+    function printAsync(text, delay){
+      const p = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log(text);
+            resolve();
+            }, delay)
+          });
+      return p;
+    }
+    
+    printAsync('hello',500)
+     .then(() => printAsync('world', 500))
+     .then(() => printAsync('lorem', 500));
+}
+</script>
+ <body onload="init()">
+</body>

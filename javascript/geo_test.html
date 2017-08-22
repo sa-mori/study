@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyA-kSaEBKKf9j0M14aD73ktll_4J1XpE-s&v=3&sensor=false"
+        type="text/javascript" charset="UTF-8"></script>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var map;
+    var geo;
+    test = [];
+
+    function init() {
+      geo = new google.maps.Geocoder();
+      res = [];
+    }
+
+    function buttonpress() {
+      // GeocoderRequest
+      var req = {
+        address: document.getElementById("input").value,
+      };
+
+      console.log(req);
+      geo.geocode(req, geoResultCallback);
+    }
+
+    function testAdd(){
+      test.push("3");
+    }
+
+    function geoResultCallback(result, status) {
+      if (status != google.maps.GeocoderStatus.OK) {
+        alert(status);
+        return;
+      }
+
+      var latlng = result[0].geometry.location;
+      res= latlng.toString();
+      console.log(document.getElementById("input").value);
+      console.log(latlng.toString());
+      console.log(res);
+    
+      var keyName = 'name';
+      var user = { 'name':'Jonh', 'age':24, 'gender':'male'};
+      var userName = user[keyName];
+      console.log(userName);
+      
+        test.push("1");
+        test.push("second");
+        testAdd();
+        console.log(test);
+        console.log(test[1]);
+    }
+
+    //]]>
+    </script>
+  </head>
+
+  <body onload="init()">
+    <div id="map"></div>
+    <div> input: <input id="input" onsubmit="buttonpress()" />
+                 <input type="button" onclick="buttonpress()" value="get latlng" /></div>
+    <div id="latlngtext"></div>
+  </body>
+
+</html>
+

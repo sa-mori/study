@@ -1,0 +1,15 @@
+<script>
+  window.onload = function(){
+    var input = document.getElementById("input_text");
+    console.log(input.getAttribute("value"));
+    console.log(input.value);
+
+    input.value="change";
+
+    console.log(input.getAttribute("value"));
+    console.log(input.value);
+  };
+</script>
+<body>
+  <input type="text" id="input_text" value="sample">
+</body>

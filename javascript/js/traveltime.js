@@ -1,3 +1,4 @@
+// todo: マーカをドラッグで動かせて、所要時間をオンデマンドで変えられること。
 function init() {
   window.TravelTimer = {};
   TravelTimer.geo = new google.maps.Geocoder();

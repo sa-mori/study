@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+   <script type="text/javascript" charset="UTF-8"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    // 通常の関数呼び出し。非同期なのでnに値が入らない。
+    function init(){
+      console.log('init');
+      func1();
+      func11();
+      func12();
+
+      function func1(){
+        console.log('func1');
+        var n = func2_async();
+        func3(n);
+      }
+      function func2_async(){
+        setTimeout(function(){
+            return parseInt(Math.random()*10,10);
+            },2000);
+      }
+      function func3(n){
+        console.log('n=' + n);
+      }
+
+      // 関数と入れ子にしてnに値が入ってから実行されるようにしている。 
+      function func11(){
+        console.log('func11');
+        func21_async();
+      }
+      function func21_async(){
+        setTimeout(function(){
+            var n = parseInt(Math.random()*10,10);
+            func31(n);
+            },2000);
+      }
+      function func31(n){
+        console.log('n=' + n);
+      }
+
+      // 入れ子のサンプル
+      function func12(){
+        console.log('func21');
+        func22(function(){
+            console.log('mumei');
+        })
+      }
+
+      function func22(callback){
+        callback();
+        console.log('func22');
+      }
+
+      function func32(){
+        console.log('func32');
+      }
+    }
+    //]]>
+    </script>
+ </head>
+
+  <body onload="init()">
+  </body>
+
+</html>
+

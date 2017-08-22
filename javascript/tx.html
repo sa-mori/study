@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Sample1</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript">
+
+    <!-- キー入力後、ボタンダウンでテキストに反映 -->
+    function onclick_update_field(){
+      var hoge = tx_form.textbox.value;  //テキストエリアの値を取得
+      document.getElementById("onclick_target").innerText = hoge;
+    }
+
+    <!-- キー入力を即時にテキストに反映 -->
+    function onkeydown_update_field(elem){
+      document.getElementById("onkeydown_target").innerText = document.getElementById("textbox").value;
+    }
+  </script>
+</head>
+<body>
+  <form name="tx_form" action="tx.html">
+    <input id="textbox" type="text" name="textbox" onkeydown="onkeydown_update_field();">
+
+    <BR> 
+    <font color="#FF0000">onkeydownは「<span id="onkeydown_target"></span>」です。</font>
+    
+    <BR>
+    <input type="button" value="Sample1" onclick="onclick_update_field()">
+    <BR>
+    <font color="#FF0000">onclickは「<span id="onclick_target"></span>」です。</font>
+  </form>
+</body>
+</html>
