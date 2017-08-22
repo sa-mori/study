@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bootstrap sample</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+  <h1>Study BootStrap</h1>
+
+  <h2>行揃えの指定</h2>
+  <div class="row" style="background:#CCC;">
+    <div class="col-xs-12 text-left"><h3>文字の配列</h3></div>
+    <div class="col-xs-12 text-center"><h3>文字の配列</h3></div>
+    <div class="col-xs-12 text-right"><h3>文字の配列</h3></div>
+  </div>
+
+  <h2>文字色の指定</h2>
+  <p class="text-primary">primary</p>
+  <p class="text-success">success</p>
+  <p class="text-info">info</p>
+  <p class="text-warning">warning</p>
+  <p class="text-danger">danger</p>
+  <p class="text-muted">muted</p>
+
+  <h2>背景色の指定</h2>
+  <p class="bg-primary">primary</p>
+  <p class="bg-success">success</p>
+  <p class="bg-info">info</p>
+  <p class="bg-warning">warning</p>
+  <p class="bg-danger">danger</p>
+  <p class="bg-muted">muted</p>
+
+  <h2>見出しに<small>サブタイトルを付ける</small></h2>
+  </div>
+
+  <div class="container">
+  <div class="jumbotron"
+        style="background:#06CC8A;color:#B1FFDB;">
+    <h1 class="text-center">BootStrap</h1>
+    <p class="text-center">how to bootstrap</p>
+  </div>
+  </div>
+
+  <h2 class="page-header">Bootstrapの導入</h2>
+  <p>まずは写経から</p>
+
+  <h3>プログラム</h3>
+  <ul class="list-unstyled">
+    <li>はじめに</li>
+    <li>各部門賞の発表</li>
+    <ul>
+      <li>技術賞</li>
+      <li>アイデア賞</li>
+      <li>デザイン賞</li>
+    </ul>
+    <li>グランプリの発表</li>
+    <li>総評</li>
+  </ul>
+  <p>リストを横に並べる</p>
+  <ul class="list-inline">
+    <li>札幌</li>
+    <li>横浜</li>
+    <li>神奈川</li>
+  </ul>
+
+  <h2>Webの基本言語</h2>
+  <dl>
+    <dt>HTML</dt>
+    <dd>Web作成の基本となる言語で、Webページに・・・記述していきます。</dd>
+    <dt>CSS</dt>
+    <dd>サイズや色、枠線、余白といった書式を・・・指定していきます。</dd>
+  </dl>
+
+  <h2>定義リストを横に並べちゃう</h2>
+  <dl class="dl-horizontal">
+    <dt>HTML</dt>
+    <dd>Web作成の基本となる言語で、Webページに・・・記述していきます。</dd>
+    <dt>CSS</dt>
+    <dd>サイズや色、枠線、余白といった書式を・・・指定していきます。</dd>
+  </dl>
+
+  <h2>画像の形状</h2>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <img src="images/cat1.jpg" class="img-responsive img-rounded">
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <img src="images/cat2.jpg" class="img-responsive img-circle">
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <img src="images/cat3.jpg" class="img-responsive img-thumbnail">
+    </div>
+  </div>
+
+  <h2>囲み記事</h2>
+  <div class="well">
+    <h3>wellを適用したブロック要素</h3>
+    <p>ブロック要素にwellを適用</p>
+  </div>
+  <p class="well">div要素以外にやってみると。</p>
+  <p class="well well-lg">div要素以外にやってみると。well-lg</p>
+  <p class="well well-sm">div要素以外にやってみると。well-sm</p>
+
+  <h2>さむねーる囲み記事</h2>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="thumbnail">
+       <img src="images/cat1.jpg">
+       <div class="caption">
+          <h3>ねこ１</h3>
+          <p>偉大なる猫</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="thumbnail">
+       <img src="images/cat2.jpg">
+       <div class="caption">
+          <h3>ねこ２</h3>
+          <p>厳粛なる猫</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>フロートとセンターブロック</h2>
+  <img src="images/cat3.jpg" class="pull-left"
+        style="width:200px;margin-right:15px;">
+  <h3 style="margin-top:0">ねこ３</h3>
+  <p class="clearfix">史上最強の猫</p>
+  <p>ここは解除される</p>
+
+  <h2>空室案内</h2>
+  <table class="table table-striped">
+    <tr><th>部屋No.</th><th>タイプ</th><th>定員</th><th>喫煙</th><th class="text-center">料金</th></tr>
+    <tr><td>402</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">8,800円</th></tr>
+    <tr><td>403</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">18,800円</th></tr>
+    <tr><td>404</th><td>シングル</th><td>１名</th><td>不可</th><td class="text-right">8,800円</th></tr>
+    <tr><td>405</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">8,800円</th></tr>
+  </table>
+
+  <h2>空室案内_ヘッダー分割&マウスオーバー</h2>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr><th>部屋No.</th><th>タイプ</th><th>定員</th><th>喫煙</th><th class="text-center">料金</th></tr>
+    </thead>
+    <tbody>
+      <tr class="info"><td>402</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">8,800円</th></tr>
+      <tr><td>403</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">18,800円</th></tr>
+      <tr><td>404</th><td>シングル</th><td>１名</th><td class="danger">不可</th><td class="text-right">8,800円</th></tr>
+      <tr><td>405</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">8,800円</th></tr>
+    </tbody>
+  </table>
+    
+  <h2>空室案内_コンパクト_scroll</h2>
+  <div class="table-responsive">
+  <table class="table table-striped table-condensed">
+    <tr><th>部屋No.</th><th>タイプ</th><th>定員</th><th>喫煙</th><th class="text-center">料金</th></tr>
+    <tr><td>402</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">8,800円</th></tr>
+    <tr><td>403</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">18,800円</th></tr>
+    <tr><td>404</th><td>シングル</th><td>１名</th><td>不可</th><td class="text-right">8,800円</th></tr>
+    <tr><td>405</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">8,800円</th></tr>
+  </table>
+  </div>
+    
+  <h2>Media Object</h2>
+  <div class="media">
+    <a href="#" class="media-left">
+      <img src="./images/cat1.jpg" class="img-rounded">
+    </a>
+    <div class="media-body">
+      <h3 class="media-heading">ねこ１</h3>
+      軍事的なねことして楽しめる場合がある。
+    </div>
+  </div>
+
+
+  <h2>Media Object in Media List</h2>
+  <ul class="media-list">
+    <li class="media">
+      <a href="#" class="media-left">
+        <img style="width:100px;" src="./images/cat1.jpg" class="img-rounded">
+      </a>
+      <div class="media-body">
+        <h3 class="media-heading">ねこ１</h3>
+        軍事的なねことして楽しめる場合がある。
+        <div class="media">
+          <a href="#" class="media-left">
+            <img style="width:100px;" src="./images/cat2.jpg" class="img-rounded">
+          </a>
+          <div class="media-body">
+            <h3 class="media-heading">ねこ２</h3>
+            軍事的なねことして楽しめる場合がある。
+          </div>
+        </div>
+        <div class="media">
+          <a href="#" class="media-left">
+            <img style="width:100px;" src="./images/cat3.jpg" class="img-rounded">
+          </a>
+          <div class="media-body">
+            <h3 class="media-heading">ねこ３</h3>
+            軍事的なねことして楽しめる場合がある。
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <h2>パネルの作成</h2>
+  <div class="panel panel-primary">
+    <div class="panel-heading"><h2 class="panel-title">CSSフレームワークとは？</h2></div>
+    <div class="panel-body">
+      <p>Bootstrapはcssのフレームワークです。</p>
+      <p>書き方を勉強するでござる。</p>
+    </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-condensed">
+          <tr><th>部屋No.</th><th>タイプ</th><th>定員</th><th>喫煙</th><th class="text-center">料金</th></tr>
+          <tr><td>402</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">8,800円</th></tr>
+          <tr><td>403</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">18,800円</th></tr>
+          <tr><td>404</th><td>シングル</th><td>１名</th><td>不可</th><td class="text-right">8,800円</th></tr>
+          <tr><td>405</th><td>ツイン</th><td>２名</th><td>可</th><td class="text-right">8,800円</th></tr>
+        </table>
+      </div>
+    <div class="panel-footer text-right">更新日 最近</div>
+  </div>
+  <div class="panel panel-success">
+    <div class="panel-heading"><h2 class="panel-title">CSSフレームワークとは？</h2></div>
+    <div class="panel-body">
+      <p>Bootstrapはcssのフレームワークです。</p>
+      <p>書き方を勉強するでござる。</p>
+    </div>
+    <div class="panel-footer text-right">更新日 最近</div>
+
+  <h2>アラートの作成</h2>
+  <div class="alert alert-info alert-dismissible">
+    <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <b>2017.08.23</b>
+    <a href="http://getbootstrap.com/" class="alert-link">Bootstrap</a>はじめました。
+  </div>
+
+  <h2>お問い合わせ</h2>
+  <form>
+    <div class="form-group">
+      <label for="name1">お名前</label>
+      <input type="text" class="form-control" id="name1">
+    </div>
+    <div class="form-group">
+      <label for="mail">メールアドレス</label>
+      <input type="email" class="form-control" id="mail">
+    </div>
+    <div class="form-group">
+      <label for="ask1">お問い合わせ内容</label>
+      <textarea rows="5" class="form-control" id="ask"></textarea>
+    </div>
+    <button class="btn btn-primary">送信</button>
+  </form>
+
+  <div class="container">
+  <h2>お問い合わせ2</h2>
+  <form class="form-inline text-right">
+    <div class="form-group">
+      <label class="sr-only" for="name1">お名前</label>
+      <input type="text" class="form-control" placeholder="お名前" id="name1" size="16">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="mail">メールアドレス</label>
+      <input type="email" class="form-control" placeholder="メールアドレス" id="mail" size="16">
+    </div>
+  </form>
+  </div>
+
+  <div class="container">
+    <h2>お問い合わせ with gridsystem</h2>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="name1">お名前(ボックス大きめ)</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control input-lg" id="name1">
+        </div>
+      </div>
+      <div class="form-group has-success">
+        <label class="col-sm-3 control-label" for="mail1">メールアドレス(ボックス小さめ)</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control input-sm" id="mail1">
+          <p class="help-block">※半角文字でいれてね。
+        </div>
+      </div>
+      <div class="form-group has-warning">
+        <label class="col-sm-3 control-label" for="ask1">お問い合わせ内容</label>
+        <div class="col-sm-9">
+          <textarea rows="5" class="form-control" id="ask1"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9 text-right">
+          <button class="btn btn-default">クリア</button>
+          <button class="btn btn-primary">送信</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container">
+    <h2>お問い合わせ2 with gridsystem</h2>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="name1">お名前(ボックス大きめ)</label>
+        <div class="col-sm-9">
+          <p class="form-control-static">山田太郎</p>
+        </div>
+      </div>
+      <div class="form-group has-success has-feedback">
+        <label class="col-sm-3 control-label" for="mail1">メールアドレス(ボックス小さめ)</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control input-sm" id="mail1">
+          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+          <p class="help-block">※半角文字でいれてね。
+        </div>
+      </div>
+      <div class="form-group has-warning">
+        <label class="col-sm-3 control-label" for="ask1">お問い合わせ内容</label>
+        <div class="col-sm-9">
+          <textarea rows="5" class="form-control" id="ask1"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9 text-right">
+          <button class="btn btn-default">クリア</button>
+          <button class="btn btn-primary">送信</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <p><b>オプションを選択してください</b></p>
+        <div class="radio"><label><input type="radio" name="iro">赤</label></div>
+        <div class="radio"><label><input type="radio" name="iro">青</label></div>
+        <div class="radio disabled"><label><input type="radio" name="iro" disabled>黄</label></div>
+      </div>
+      <div class="form-group">
+        <p><b>オプションを選択してください</b></p>
+        <div class="checkbox"><label><input type="checkbox" name="iro">赤</label></div>
+        <div class="checkbox"><label><input type="checkbox" name="iro">青</label></div>
+        <div class="checkbox disabled"><label><input type="checkbox" name="iro" disabled>黄</label></div>
+      </div>
+      <div class="form-group">
+        <p><b>オプションを選択してください</b></p>
+        <div class="checkbox-inline"><label><input type="checkbox" name="iro">赤</label></div>
+        <div class="checkbox-inline"><label><input type="checkbox" name="iro">青</label></div>
+        <div class="checkbox-inline disabled"><label><input type="checkbox" name="iro" disabled>黄</label></div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">オプションを選択してください(これはグリッドシステムを利用)</label>
+        <div class="col-sm-9">
+          <div class="checkbox"><label><input type="checkbox" name="iro">赤</label></div>
+          <div class="checkbox"><label><input type="checkbox" name="iro">青</label></div>
+          <div class="checkbox disabled"><label><input type="checkbox" name="iro" disabled>黄</label></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">領収書(これはグリッドシステムを利用)</label>
+        <div class="col-sm-9">
+          <select class="form-control" id="sel">
+            <option>お届け先氏名で領収書発行</option>
+            <option>指定した名前で領収書発行</option>
+            <option>いらぬ</option>
+          </select>
+        </div>
+    </form>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
