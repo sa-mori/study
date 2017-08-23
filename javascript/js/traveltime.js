@@ -31,6 +31,7 @@ function mapCall(locations) {
     center: mapCenter,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     scaleControl: true,
+    scrollwheel:false,
   };
 
   console.log(mapOptions);
