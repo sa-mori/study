@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bootstrap sample</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="padding-top:70px;">
+
+  <h2 class="page-header">ボタンのドロップダウン</h2>
+  <a href="#" class="btn btn-primary">国立国会図書館</a>
+  <a href="#" class="btn btn-primary">国立科学博物館</a>
+  <div class="btn-group">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      国立美術館<span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">東京国立近代美術館</a></li>
+      <li><a href="#">京都国立近代美術館</a></li>
+      <li><a href="#">国立西洋美術館</a></li>
+      <li class="divider"></li>
+      <li><a href="#">独立行政法人　国立美術館</a></li>
+    </ul>
+  </div>
+
+  <h2 class="page-header">ナビゲーションバーのドロップダウン</h2>
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
+            <span class="sr-only">ナビゲーション</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">boot dining</a>
+        </div>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#"><span class="glyphicon glyphicon-home"></span> Home</a>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Food</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-glass"></span> Drink</a></li>
+          </ul>
+           <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                アクセス<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-header">店舗を選択</li>
+                <li><a href="#">代々木店</a></li>
+                <li><a href="#">渋谷店</a></li>
+                <li><a href="#">新宿店</a></li>
+              </ul>
+            </li>
+            <li><a href="#">予約</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <h2 class="page-header">タブ形式のナビゲーションでのドロップダウン</h2>
+  <ul class="nav nav-tabs">
+    <li><a href="#"><span class="glyphicon glyphicon-glass hidden-xs"></span> Home</a></li>
+    <li class="active">
+      <a href="#"><span class="glyphicon glyphicon-glass hidden-xs"></span> Food</a>
+    </li>
+    <li class="hidden-xs"><a href="#">アクセス</a></li>
+    <li class="hidden-xs"><a href="#">予約</a></li>
+    <li class="dropdown visible-xs">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li><a href="#">アクセス</a></li>
+        <li><a href="#">予約</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 class="page-header">ドロップダウン</h2>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      ランチセットの画像
+    </button>
+    <div class="dropdown-menu alert alert-warning img-responsive">
+      <img src="./images/pudding.jpg" class="img-responsive">
+    </div>
+  </div>
+
+  <h2 class="page-header">モーダルダイアログ</h2>
+  <button class="btn btn-primary" data-toggle="modal" data-target="#holiday-oct">
+    今月の休業日
+  </button>
+  <div class="modal fade" id="holiday-oct">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title">2017年9月の休業日</h4>
+        </div>
+        <div class="modal-body">
+          9月の定休日はおまかせで。
+        </div>
+        <div class="modal-footer">
+          <p>boot dining 渋谷店</p>
+          <button class="btn btn-primary btn-sm" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="page-header">モーダルダイアログ画像</h2>
+  <a href="#photo-01" data-toggle="modal">
+    <img src="./images/cat1.jpg">
+  </a>
+  <div class="modal fade" id="photo-01">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title">cat01</h4>
+          <img src="images/cat1.jpg" class="img-responsive">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</html>
+
+
