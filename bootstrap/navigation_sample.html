@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bootstrap sample</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="padding-top:70px;">
+
+  <h2 class="page-header">ボタンの表示</h2>
+  <button class="btn btn-default">Default</button>
+  <button class="btn btn-primary btn-lg">Primary(lg)</button>
+  <button class="btn btn-success btn-sm">Success(sm)</button>
+  <button class="btn btn-info btn-xs">Info(xs)</button>
+  <button class="btn btn-warning">Warning</button>
+  <button class="btn btn-danger">Danger</button>
+  <a href="http://getbootstrap.com" class="btn btn-info">Get Bootstrap</a>
+  <input type="button" class="btn btn-info btn-block" value="Get Bootstrap(inputで書いてみた。あと、ブロック要素に。)">
+
+  <div class="container">
+    <h2 class="page-header">ボタンをブロック要素で整理</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <button class="btn btn-primary btn-block">Primary</button>
+        <button class="btn btn-success btn-block active">Success(active)</button>
+        <button class="btn btn-info btn-block disabled">Info(disabled)</button>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="visible-xs" style="height:20px;"></div>
+        <h2 style="margin-top:0;">ボタンをブロック幅で表示</h2>
+        <p>btn-blockクラスを使ってみたよ。visible-xsで縦に並べたときに余白ができる工夫がされているよ。</p>
+      </div>
+    </div>
+  </div>
+  
+  <h2 class="page-header">ボタングループ</h2>
+  <div class="btn-group">
+    <button class="btn btn-default">Default</button>
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-success">Success</button>
+    <button class="btn btn-info">Info</button>
+  </div>
+  <div class="btn-group-vertical">
+    <button class="btn btn-default">Default</button>
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-success">Success</button>
+    <button class="btn btn-info">Info</button>
+  </div>
+  <div class="btn-group btn-group-lg">
+    <button class="btn btn-default">Default</button>
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-success">Success</button>
+    <button class="btn btn-info">Info</button>
+  </div>
+  <div class="btn-group btn-group-lg btn-group-justified">
+    <a href="#" class="btn btn-default">Default</a>
+    <a href="#" class="btn btn-primary">Primary</a>
+    <a href="#" class="btn btn-success">Success</a>
+    <a href="#" class="btn btn-info">Info</a>
+  </div>
+
+  <h2 class="page-header">ボタンツールバー</h2>
+  <div class="btn-toolbar">
+    <div class="btn-group" style="margin-button:15px;">
+      <button class="btn btn-default">Default</button>
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-success">Success</button>
+    </div>
+    <div class="btn-group" style="margin-button:15px;">
+      <button class="btn btn-default">Default</button>
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-success">Success</button>
+    </div>
+    <div class="btn-group" style="margin-button:15px;">
+      <button class="btn btn-default">Default</button>
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-success">Success</button>
+    </div>
+  </div>
+
+  <h2 class="page-header">アイコンの表示</h2>
+  <div class="well">
+    <button class="close">&times;</button>
+    closeは右寄せ、半透明などの書式を指定するクラスです。
+  </div>
+  <div class="well">
+    <button class="close">閉じるアイコン以外でも使えるよ。</button>
+    closeは右寄せ、半透明などの書式を指定するクラスです。
+  </div>
+
+  <h2 class="page-header">キャレットの表示</h2>
+  <a href="#" class="btn btn-info">Info(a)<span class="caret"></span></a>
+  <button class="btn btn-info">Info(button)<span class="caret"></span></button>
+
+  <h2 class="page-header">グリフアイコンの表示</h2>
+  <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-home"></span>home<span class="glyphicon glyphicon-home"></span></a>
+  <button class="btn btn-info btn-lg">alt<span class="glyphicon glyphicon-list-alt"></span></button>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-bullhorn"></span><b>　アイコンの表示</b>
+    </div>
+    <div class="panel-body">
+     Bootstrapの様々なアイコン
+    </div>
+  </div>
+
+  <div class="btn-group pull-right">
+    <button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button>
+    <button class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>
+    <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button>
+  </div>
+
+  <h2 class="page-header">ナビゲーションバー</h2>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">boot dining</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#"><span class="glyphicon glyphicon-home"></span> Home</a>
+          </li>
+          <li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Food</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-glass"></span> Drink</a></li>
+          <li><a href="#">アクセス</a></li>
+          <li><a href="#">予約</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+  <h2 class="page-header">ナビゲーションバー_reverse</h2>
+  <div class="container">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">boot dining</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#"><span class="glyphicon glyphicon-home"></span> Home</a>
+          </li>
+          <li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Food</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-glass"></span> Drink</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">アクセス</a></li>
+          <li><a href="#">予約</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <h2 class="page-header">ナビゲーションバー_reverse</h2>
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
+            <span class="sr-only">ナビゲーション</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">boot dining</a>
+        </div>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#"><span class="glyphicon glyphicon-home"></span> Home</a>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Food</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-glass"></span> Drink</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" class="form-control" plaseholder="キーワードを入力" size="20">
+            </div>
+            <button class="btn btn-primary">検索</button>
+          </form>
+           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">アクセス</a></li>
+            <li><a href="#">予約</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <h2 class="page-header">パンくず</h2>
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Food</a></li>
+    <li class="active"><span>lunch</span></li>
+  </ol>
+
+  <h2 class="page-header">ページネーション</h2>
+  <div class="text-center">
+    <ul class="pagination pagination-lg">
+      <li class="disabled"><span>&laquo;</span></li>
+      <li class="active"><span>1</span></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+
+  <h2 class="page-header">ページャー</h2>
+  <ul class="pager">
+    <li><a href="#">戻る</a></li>
+    <li><a href="#">ホーム</a></li>
+    <li><a href="#">進む</a></li>
+  </ul>
+  <ul class="pager">
+    <li class="previous"><a href="#">戻る</a></li>
+    <li><a href="#">ホーム</a></li>
+    <li class="next"><a href="#">進む</a></li>
+  </ul>
+
+
+  <h2 class="page-header">リストグループ</h2>
+  <div class="container">
+  <p><b>boot dining</b>の系列店は都内にいっぱい</p>
+    <div class="row">
+     <div class="col-sx-12 col-sm-6">
+       <ul class="list-group">
+         <li class="list-group-item">代々木店</li>
+         <li class="list-group-item active"><span>渋谷店</span></li>
+         <li class="list-group-item">新宿店</li>
+         <li class="list-group-item">品川店</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+
+  <h2 class="page-header">リストグループ_リンク付き＆レスポンシブでの表示切り替え</h2>
+  <div class="container">
+    <p><b>boot dining</b>の系列店は都内にいっぱい</p>
+    <!-- PC -->
+    <ul class="hidden-xs">
+      <li><a href="#">代々木店</a></li>
+      <li class="active"><b><span>渋谷店</span></b></li>
+      <li><a href="#">新宿店</a></li>
+      <li><a href="#">品川店</a></li>
+    </ul>
+    <!-- SP -->
+    <ul class="list-group visible-xs">
+      <a href="#" class="list-group-item">代々木店</a>
+      <span class="list-group-item active">渋谷店</span>
+      <a href="#" class="list-group-item">新宿店</a>
+      <a href="#" class="list-group-item disabled">品川店</a>
+    </ul>
+  </div>
+
+
+  <h2 class="page-header">リストグループ_色_ヘッダーと本文構成</h2>
+  <div class="container">
+  <p><b>boot dining</b>の系列店は都内にいっぱい</p>
+    <div class="row">
+     <div class="col-sx-12 col-sm-6">
+       <ul class="list-group">
+         <li class="list-group-item list-group-item-success">
+           <h5 class="list-group-item-heading"><b>代々木店</b></h5>
+           <p class="list-group-item-text">渋谷区代々木の何処か</p>
+        </li>
+         <li class="list-group-item list-group-item-warning active">
+           <h5 class="list-group-item-heading"><b>渋谷店</b></h5>
+           <p class="list-group-item-text">渋谷区渋谷の何処か</p>
+        </li>
+         <li class="list-group-item list-group-item-danger">
+           <h5 class="list-group-item-heading"><b>新宿店</b></h5>
+           <p class="list-group-item-text">新宿区新宿の何処か何処か</p>
+        </li>
+         <li class="list-group-item">
+           <h5 class="list-group-item-heading"><b>品川店</b></h5>
+           <p class="list-group-item-text">品川区品川の何処か</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  <h2 class="page-header">バッジ</h2>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="list-group">
+        <a href="#" class="list-group-item">東京<span class="badge">124</span></a>
+        <a href="#" class="list-group-item active">神奈川<span class="badge">12</span></a>
+        <a href="#" class="list-group-item">埼玉<span class="badge">1</span></a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <h2 class="page-header">ラベル</h2>
+  <h3>液晶モニタ全商品 <span class="label label-default">30% OFF</span></h3>
+  <h3>液晶モニタ全商品 <span class="label label-primary">30% OFF</span></h3>
+  <h3>液晶モニタ全商品 <span class="label label-info">30% OFF</span></h3>
+
+  <h2 class="page-header">タブ形式のナビゲーション</h2>
+  <ul class="nav nav-tabs">
+    <li><a href="#"><span class="glyphicon glyphicon-glass"></span> Home</a></li>
+    <li class="active">
+      <a href="#"><span class="glyphicon glyphicon-glass"></span> Food</a>
+    </li>
+    <li><a href="#">アクセス</a></li>
+    <li><a href="#">予約</a></li>
+  </ul>
+
+
+  <h2 class="page-header">タブ形式のナビゲーション_丸み_均等配置</h2>
+  <ul class="nav nav-pills nav-justified">
+    <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+    <li class="active">
+      <a href="#"><span class="glyphicon glyphicon-glass"></span> Food</a>
+    </li>
+    <li><a href="#">アクセス</a></li>
+    <li><a href="#">予約</a></li>
+  </ul>
+
+
+  <h2 class="page-header">タブ形式のナビゲーション_縦</h2>
+  <div class="col-xs-12 col-sm-4">
+  <ul class="nav nav-pills nav-stacked">
+    <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+    <li class="active">
+      <a href="#"><span class="glyphicon glyphicon-glass"></span> Food</a>
+    </li>
+    <li><a href="#">アクセス</a></li>
+    <li><a href="#">予約</a></li>
+  </ul>
+  </div>
+  <div class="col-sx-12 col-sm-8">
+    メイン
+  </div>
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</html>
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</html>
+
