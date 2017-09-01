@@ -137,11 +137,178 @@
   </div>
 
 
+  <h2 class="page-header">カルーセル</h2>
+  <div id="c1" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#c1" data-slide-to="0" class="active"></li>
+      <li data-target="#c1" data-slide-to="1"></li>
+      <li data-target="#c1" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active"><img src="images/cat1.jpg"></div>
+      <div class="item"><img src="images/cat2.jpg"></div>
+      <!--- ここだけリンクを含めたものに -->
+      <div class="item">
+        <a href="#">
+          <img src="images/cat3.jpg">
+          <div class="carousel-caption">
+            <h2>Cat</h2><p>CatCatCat</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a class="carousel-control left" href="#c1" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#c1" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
 
+  <h2 class="page-header">タブ切り替え</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#cat1" data-toggle="tab">Cat 1</a></li>
+    <li><a href="#cat2" data-toggle="tab">Cat 2</a></li>
+    <li><a href="#cat3" data-toggle="tab">Cat 3</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="cat1">
+      <h3>最初のねこ</h3>
+      <p>Zzzzzzz</p>
+    </div>
+    <div class="tab-pane" id="cat2">
+      <h3>次のねこ</h3>
+      <p>届かない。。。</p>
+    </div>
+    <div class="tab-pane" id="cat3">
+      <h3>さいごのねこ</h3>
+      <p>ぼくもねこになりたい。</p>
+    </div>
+  </div>
+
+
+  <h2 class="page-header">タブ切り替え_pills_fade</h2>
+  <ul class="nav nav-pills">
+    <li class="active"><a href="#cat1p" data-toggle="pill">Cat 1</a></li>
+    <li><a href="#cat2p" data-toggle="pill">Cat 2</a></li>
+    <li><a href="#cat3p" data-toggle="pill">Cat 3</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="cat1p">
+      <h3>最初のねこ</h3>
+      <p>Zzzzzzz</p>
+    </div>
+    <div class="tab-pane fade" id="cat2p">
+      <h3>次のねこ</h3>
+      <p>届かない。。。</p>
+    </div>
+    <div class="tab-pane fade" id="cat3p">
+      <h3>さいごのねこ</h3>
+      <p>ぼくもねこになりたい。</p>
+    </div>
+  </div>
+
+  <h2>アコーディオンの作成</h2>
+  <div class="panel-group" id="ac1">
+  <!-- 1番目のパネル -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a data-toggle="collapse" data-parent="#ac1" href="#cat1ac">
+          最初のねこ
+        </a>
+      </h2>
+    </div>
+    <div id="cat1ac" class="panel-collapse collapse in">
+      <div class="panel-body">
+        Zzzzzzz>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2番目のパネル -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a data-toggle="collapse" data-parent="#ac1" href="#cat2ac">
+          つぎのねこ
+        </a>
+      </h2>
+    </div>
+    <div id="cat2ac" class="panel-collapse collapse">
+      <div class="panel-body">
+        届かない。。。
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 3番目のパネル -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a data-toggle="collapse" data-parent="#ac1" href="#cat3ac">
+          さいごのねこ
+        </a>
+      </h2>
+    </div>
+    <div id="cat3ac" class="panel-collapse collapse">
+      <div class="panel-body">
+        ぼくもねこになりたい。>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <h2>アコーディオンの応用</h2>
+  <div class="col-xs-12 col-sm-6">
+  <!-- 1番目のパネル -->
+  <a href="#21tue" data-toggle="collapse">
+    <b>10/21 生ビール半額！</b>
+  </a><br>
+  <p id="21tue" class="collapse well">恒例の生ビール半額Day</p>
+
+  <!-- 2番目のパネル -->
+  <a href="#22fri" data-toggle="collapse">
+    <b>10/22 Boot st.Rangerライブ</b>
+  </a><br>
+  <p id="22fri" class="collapse well">高田馬場のラッパーが来るぜ！</p>
+
+  <!-- 3番目のパネル -->
+  <a href="#23sat" data-toggle="collapse">
+    <b>10/23 ハロウィン料理教室</b>
+  </a><br>
+  <p id="23sat" class="collapse well">かぼちゃを撲滅する！</p>
+  </div>
+
+  <div class="container">
+  <h2 class="page-header">ツールチップの表示</h2>
+  <div class="text-center">
+    <button class="btn btn-primary btn-sm"
+            data-toggle="tooltip" data-placement="left"
+            title="お気に入りに追加します">
+      <span class="glyphicon glyphicon-heart"></span>
+    </button>
+    <button class="btn btn-primary btn-sm"
+            data-toggle="tooltip" data-placement="right"
+            title="設定画面を表示します">
+      <span class="glyphicon glyphicon-cog"></span>
+    </button>
+    <button class="btn btn-primary btn-sm"
+            data-toggle="popover" data-placement="buttom"
+            title="タイル表示"
+            data-content="リストの表示方法をタイル表示に。">
+      <span class="glyphicon glyphicon-th"></span>
+    </button>
+  </div>
+  </div>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>$('[data-toggle=tooltip]').tooltip();</script>
+<script>$('[data-toggle=popover]').popover();</script>
 </html>
 
 
