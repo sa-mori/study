@@ -1,4 +1,8 @@
-// todo: マーカをドラッグで動かせて、所要時間をオンデマンドで変えられること。
+// todo:最後の目的地の滞在時間が計算されていないかも。
+// todo:マーカをドラッグで動かせて、所要時間をオンデマンドで変えられること。
+// todo:滞在時間にデフォルト0をいれる。
+// todo:ヘッダーとフッターを整える。
+//
 function init() {
   window.TravelTimer = {};
   TravelTimer.geo = new google.maps.Geocoder();
@@ -193,25 +197,36 @@ $(function(){
     // 項目の追加
     $("#btnAddText").on('click',function(){
       currentNumber++;
-      $("#item").append('<p><label id=\"lblDuration' + currentNumber + 
-                                          '\">移動時間' + 
-                                          '：<span id =duration' + currentNumber + '\></span></label>');
+      $("#item").append('<form id =\"formAdd1_' + currentNumber + '\" class=\"form-horizontal\">' + 
+                        '  <div class=\"form-group\">' + 
+                        '    <label class=\"col-sm-3 control-label\" id=\"lblDuration' + currentNumber + '\">' + '移動時間</label>' + 
+                        '    <div class=\"col-sm-9\">' +
+                        '      <p class=\"form-control-static\"><span id =duration' + currentNumber + '\></span></p>' +
+                        '    </div>' +
+                        '  </div>' +
+                        '</form>');
 
-      $("#item").append('<label id=\"lblTarPoint' + currentNumber + 
-                                          '\">目的地' + currentNumber + '</label>');
-      $("#item").append('<input class="inputTarget" id=\"txtTarPoint' + currentNumber + 
-                                          '\" type=\"text\" name=\"text1\" size=\"30\" />');
-
-      $("#item").append('<label id=\"lblStayTime' + currentNumber + 
-                                          '\">滞在時間</label>');
-      $("#item").append('<input class="inputStayTime" id=\"timeStayTime' + currentNumber + 
-                                          '\" type=\"time\" name=\"text1\" style=\"width:80px\" />');
-
-
+      $("#item").append('<form id =\"formAdd2_' + currentNumber + '\" class=\"form-horizontal\">' + 
+                        '  <div class=\"form-group\">' + 
+                        '    <label class=\"col-sm-3 control-label\" id=\"lblTarPoint' + currentNumber + '\">' + '目的地' + (currentNumber+1) +  '</label>' + 
+                        '    <div class=\"col-sm-3\">' +
+                        '      <input class=\"inputTarget form-control\" id=\"txtTarPoint' + currentNumber +
+                                          '\" type=\"text\" style=\"width:180px\">' +
+                        '    </div>' +
+                        '    <label class=\"col-sm-2 control-label\" id=\"lblStayTime' + currentNumber + '\">' + '滞在時間</label>' + 
+                        '    <div class=\"col-sm-2\">' +
+                        '      <input class=\"inputStaytime form-control\" id=\"timeStayTime' + currentNumber +
+                                          '\" type=\"time\" style=\"width:100px\">' +
+                        '    </div>' +
+                        '  </div>' +
+                        '</form>');
     });
+
     // 項目の削除
     $("#btnRemoveText").on('click',function(){
       if (currentNumber > 0){
+        $('#formAdd1_' + currentNumber).remove();
+        $('#formAdd2_' + currentNumber).remove();
         $('#lblTarPoint' + currentNumber).remove();
         $('#lblDuration' + currentNumber).remove();
         $('#txtTarPoint' + currentNumber).remove();
