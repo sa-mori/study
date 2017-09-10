@@ -215,7 +215,7 @@ $(function(){
                         '    </div>' +
                         '    <label class=\"col-sm-2 control-label\" id=\"lblStayTime' + currentNumber + '\">' + '滞在時間</label>' + 
                         '    <div class=\"col-sm-2\">' +
-                        '      <input class=\"inputStaytime form-control\" id=\"timeStayTime' + currentNumber +
+                        '      <input class=\"inputStayTime form-control\" id=\"timeStayTime' + currentNumber +
                                           '\" type=\"time\" style=\"width:100px\" value=\"00:00\">' +
                         '    </div>' +
                         '  </div>' +
